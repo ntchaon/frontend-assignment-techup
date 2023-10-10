@@ -1,7 +1,14 @@
 // Question #1: Shipping Cost Calculator
 
-function calculateShippingCost() {
-  // เริ่มเขียนโค้ดตรงนี้
+function calculateShippingCost(orders) {
+  for (const val of orders) {
+    let message = `Order Id ${val.orderId}:`;
+    if (val.total >= 6000) {
+      console.log(`${message} "Shipping is free"`);
+    } else if (val.total >= 3000)
+      console.log(`${message} "Shipping cost is 250 Baht."`);
+    else console.log(`${message} "Shipping cost is 500 Baht."`);
+  }
 }
 
 // ตัวอย่างการใช้งาน
@@ -19,8 +26,4 @@ const orders = [
     total: 150,
   },
 ];
-
-console.log(calculateShippingCost(orders));
-// Order Id 1: "Shipping is free."
-// Order Id 2: "Shipping cost is 250 Baht."
-// Order Id 3: "Shipping cost is 500 Baht."
+calculateShippingCost(orders);
